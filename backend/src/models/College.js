@@ -1,24 +1,24 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const collegeSchema = new mongoose.Schema({
-    collegeName : {
-        type : String,
-        required : true,
+const collegeSchema = new mongoose.Schema(
+  {
+    collegeName: {
+      type: String,
+      required: true,
     },
-    collegeCode : {
-        type : String,
-        required : true,
-        unique : true,
+    collegeCode: {
+      type: String,
+      required: true,
+      unique: true,
     },
-    principalName : String,
-    pricipalMobile : String,
-    principalEmail : String,
-    coordinatorName : String,
-    coordinatorMobile : String,
-    coordinatorEmail : String,
-},
-{timestamps : true},
+    principalName: String,
+    principalMobile: String,
+    principalEmail: String,
+    coordinatorName: String,
+    coordinatorMobile: String,
+    coordinatorEmail: String,
+  },
+  { timestamps: true }
 );
 
-
-export const College = new mongoose.model("College", collegeSchema);
+export const College = mongoose.model("College", collegeSchema);
