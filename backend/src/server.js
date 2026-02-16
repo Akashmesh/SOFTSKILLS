@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import cors from "cors"
 import { connectDB } from "./config/db.js"
 import authRoutes from "./routes/authRoutes.js"
+import collegeRoutes from "./routes/collegeRoutes.js"
 dotenv.config();
 connectDB();
 const app =express();
@@ -11,6 +12,7 @@ app.use(express.json());
 
 
 app.use("/api/auth", authRoutes);
+app.use("/api/colleges", collegeRoutes);
 
 app.get("/", (req, res) => {
     res.send("soft skill backend api is working");
