@@ -6,6 +6,9 @@ import authRoutes from "./routes/authRoutes.js"
 import collegeRoutes from "./routes/collegeRoutes.js"
 import workshopRoutes from "./routes/workshopRoutes.js"
 import studentRoutes from "./routes/studentRoutes.js"
+import certificateRoutes from "./routes/certificateRoutes.js";
+import excelRoutes from "./routes/excelRoutes.js";
+
 dotenv.config();
 connectDB();
 const app =express();
@@ -17,6 +20,9 @@ app.use("/api/auth", authRoutes);
 app.use("/api/colleges", collegeRoutes);
 app.use("/api/workshops", workshopRoutes);
 app.use("/api/students", studentRoutes);
+app.use("/api/certificates", certificateRoutes);
+app.use("/api/excel", excelRoutes);
+
 
 app.get("/", (req, res) => {
     res.send("soft skill backend api is working");

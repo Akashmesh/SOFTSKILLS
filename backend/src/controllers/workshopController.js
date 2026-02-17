@@ -24,3 +24,22 @@ export const getCollegeWorkshops = async (req, res) => {
 
   res.json(workshops);
 };
+
+
+export const getAllWorkshops = async (req , res) => {
+  const workshops = await Workshop.find().populate("collegeId", "collegeName collegeCode");
+  res.json(workshops);
+}
+
+export const verifyWorkshop = async (req, res) => {
+  const workshop = await Workshop.findById(req.params.id);
+
+  if (!workshop) {
+    return res.status(404).json({ message: "Workshop not found" });
+  }
+
+  workshop.status = "verified";
+  await workshop.save();
+
+  res.json({ message: "Workshop verified successfully" });
+};
